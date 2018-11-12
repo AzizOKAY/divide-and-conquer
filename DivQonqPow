@@ -1,0 +1,7 @@
+# Python program for implementation of max and min value with divide and concuer method 
+def DivQonqPow(a, n): 
+    if n == 1: return a
+    else: return DivQonqPow(a, n//2) * DivQonqPow(a, n -n//2)
+        
+
+print ("2 power 7 with divide and conquer method", DivQonqPow(2, 7) ) 
