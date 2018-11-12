@@ -1,0 +1,23 @@
+# Python program for implementation of find max and min value using divide and conquer 
+def MinMaxVal(arr, l, r): 
+    if l == r: return arr[l], arr[l]
+    elif r - l == 1:
+      if arr[l] <= arr[r]:
+        minval = arr[l]
+        maxval = arr[r]
+      else:
+        minval = arr[r]
+        maxval = arr[l]
+      return minval, maxval
+    else:
+      minval, maxval = MinMaxVal(arr, l, ((l+r)//2)) 
+      minval2, maxval2 = MinMaxVal(arr, 1 + ((l+r)//2), r)
+
+    return min(minval, minval2), max(maxval, maxval2)
+        
+  
+# Driver Code 
+arr = [12, 11, 13, 5, 6, 7]
+n = len(arr) 
+
+print ("Largest in given array is", MinMaxVal(arr, 0, len(arr)-1) )
